@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preloader</title>
+</head>
+<body style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+  <h1 style="font-size: 48px; margin-bottom: 20px;">CARGANDO GRÁFICA...</h1>
+    <div class="progress-container" style="width: 50%;">
+        <progress id="preloader" max="100" value="0" style="height: 50px; width: 100%;"></progress>
+    </div>
+    <script>
+        const preloader = document.getElementById('preloader');
+
+        function increaseProgress() {
+            let currentValue = preloader.value;
+            if (currentValue < 100) {
+                currentValue++;
+                preloader.value = currentValue;
+            } else {
+                // Redirect to a new HTML page when the progress reaches 100%
+                window.location.href = 'grafico.html';
+            }
+        }
+
+        // Increase the preloader progress every 10ms
+        setInterval(increaseProgress, 25);
+    </script>
+</body>
+</html>
